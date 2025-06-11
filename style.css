@@ -1,45 +1,139 @@
 body {
-  background: linear-gradient(to bottom right, #ffe6e6, #ffccd5);
+  margin: 0;
+  padding: 0;
   font-family: 'Georgia', serif;
+  background: linear-gradient(to right, #ffdee9, #b5fffc);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+  text-align: center;
+  min-height: 100vh;
+  color: #444;
 }
 
-.container {
-  text-align: center;
+.poem-box {
   background: white;
-  padding: 40px;
+  padding: 30px 20px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 105, 135, 0.3);
-  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  max-width: 700px;
+  width: 90%;
+  margin: 20px;
+  box-sizing: border-box;
+}
+
+h2 {
+  color: #ff4081;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+p {
+  margin: 10px 0;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.ending {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: #e91e63;
+}
+
+.signature {
+  display: block;
+  margin-top: 10px;
+  font-size: 1em;
+  color: #888;
+  font-style: italic;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 600px) {
+  .poem-box {
+    padding: 20px 15px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .ending {
+    font-size: 1.1em;
+  }
+}
+
+/* -------- Styles pour index.html -------- */
+.container {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  box-sizing: border-box;
 }
 
 h1 {
-  color: #d6336c;
-  margin-bottom: 20px;
+  color: #ff4081;
+  margin-bottom: 30px;
+  font-family: 'Georgia', serif;
+  font-size: 1.8em;
 }
 
-.buttons button {
-  background-color: #ff6f91;
-  border: none;
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+button {
+  background: #ff4081;
   color: white;
-  padding: 12px 20px;
-  margin: 10px;
-  font-size: 16px;
-  border-radius: 10px;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1em;
+  font-family: 'Georgia', serif;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: transform 0.2s, background 0.3s;
 }
 
-.buttons button:hover {
-  background-color: #ff3366;
+button:hover {
+  background: #e91e63;
+  transform: scale(1.05);
 }
 
 .message {
   margin-top: 30px;
-  font-size: 20px;
-  color: #c9184a;
+  font-size: 1.2em;
+  color: #444;
+  min-height: 40px;
+}
+
+/* Responsive pour la page d'accueil aussi */
+@media screen and (max-width: 600px) {
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .message {
+    font-size: 1em;
+  }
 }
