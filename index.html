@@ -19,6 +19,7 @@
 
   <script>
   let noClickCount = 0;
+let cancelClickCount = 0;
 
   function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -29,26 +30,74 @@
     messageBox.innerHTML = "";
 
     if (choice === 'yes') {
-      const parts = ["I", "always", "knew", "you", "liked", "me 😘"];
-      for (let part of parts) {
-        const line = document.createElement("p");
-        line.textContent = part;
-        messageBox.appendChild(line);
-        await delay(500);
-      }
+  const parts = ["I", "always", "knew", "you", "loved", "me ", "babe 😝"];
+  for (let part of parts) {
+    const line = document.createElement("p");
+    line.textContent = part;
+    messageBox.appendChild(line);
+    await delay(500);
+  }
+
+  const link = document.createElement("a");
+  link.href = "poem.html";
+  link.textContent = "Click here, I wrote something for you 💌";
+  link.classList.add("poem-link");
+  messageBox.appendChild(link);
+
     } else if (choice === 'no') {
       noClickCount++;
       if (noClickCount === 1) {
-        messageBox.innerHTML = `<p>I'll wait until you do... 💔</p>`;
-      } else if (noClickCount <= 100) {
-        const againCount = noClickCount - 1;
-        messageBox.innerHTML = `<p>I'm still waitting(${againCount})...</p>`;
-      } else {
-        messageBox.innerHTML = `<p>I told you I will wait. ❤️</p>`;
+        messageBox.innerHTML = `<p>ARE YOU SURE??? 😤</p>`;
+      
+    }else if (noClickCount === 2){
+         messageBox.innerHTML = `<p>Take your time... 😌</p>`;
+    }
+
+     else if (noClickCount <= 1000) {
+        const againCount = noClickCount - 2;
+        messageBox.innerHTML = `<p>I'm waitting(${againCount})...🙄</p>`;
       }
     } else if (choice === 'cancel') {
-      messageBox.innerHTML = `<p>Take your time... 😌</p>`;
+        cancelClickCount++;
+        if (cancelClickCount === 1){
+      messageBox.innerHTML = `<p>Don't leave me please 🥺</p>`;
+        }
+        else if (cancelClickCount === 2){
+            messageBox.innerHTML = `<p>I'll be sad ☹️</p>`;
+        }
+        else if (cancelClickCount === 3){
+            messageBox.innerHTML = `<p>Are you serious? 😳</p>`;
+        }
+        else if (cancelClickCount === 4){
+            messageBox.innerHTML = `<p>HEYY, STOPP THIS RIGHT NOW!!! 😤</p>`;
+        }
+        else if (cancelClickCount === 5){
+            messageBox.innerHTML = `<p>JUST ...</p>`;
+        }
+        else if (cancelClickCount === 6){
+            messageBox.innerHTML = `<p>ANSWER ...</p>`;
+        }
+        else if (cancelClickCount === 7){
+            messageBox.innerHTML = `<p>TO ...</p>`;
+        }
+        else if (cancelClickCount === 8){
+            messageBox.innerHTML = `<p>MY ...</p>`;
+        }
+        else if (cancelClickCount === 9){
+            messageBox.innerHTML = `<p>F*CKING ...</p>`;
+        }
+        else if (cancelClickCount === 10){
+            messageBox.innerHTML = `<p>QUESTION ...</p>`;
+        }
+        else if (cancelClickCount === 11){
+            messageBox.innerHTML = `<p>PLEASE !!</p>`;
+        }
+        else if (cancelClickCount <= 1000){
+            const pleaseCount = cancelClickCount - 10;
+            messageBox.innerHTML = `<p>PLEASE ?(${pleaseCount}) ...🤧</p>`;
+        }
     }
+
   }
 </script>
 
