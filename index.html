@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Do You Like Me?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Do you like me? 💘</h1>
+    <div class="buttons">
+      <button onclick="respond('yes')">Yes 💖</button>
+      <button onclick="respond('no')">No 💔</button>
+      <button onclick="respond('cancel')">Cancel 😶</button>
+    </div>
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+  let noClickCount = 0;
+
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async function respond(choice) {
+    const messageBox = document.getElementById("message");
+    messageBox.innerHTML = "";
+
+    if (choice === 'yes') {
+      const parts = ["I", "always", "knew", "you", "liked", "me 😘"];
+      for (let part of parts) {
+        const line = document.createElement("p");
+        line.textContent = part;
+        messageBox.appendChild(line);
+        await delay(500);
+      }
+    } else if (choice === 'no') {
+      noClickCount++;
+      if (noClickCount === 1) {
+        messageBox.innerHTML = `<p>I'll wait until you do... 💔</p>`;
+      } else if (noClickCount <= 100) {
+        const againCount = noClickCount - 1;
+        messageBox.innerHTML = `<p>I'm still waitting(${againCount})...</p>`;
+      } else {
+        messageBox.innerHTML = `<p>I told you I will wait. ❤️</p>`;
+      }
+    } else if (choice === 'cancel') {
+      messageBox.innerHTML = `<p>Take your time... 😌</p>`;
+    }
+  }
+</script>
+
+</body>
+</html>
